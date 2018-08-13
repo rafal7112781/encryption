@@ -6,7 +6,7 @@
 std::string encrypt(std::string msg, std::string key)
 {
 
-    std::string tmp(key);
+    std::string tmp(key);               //zeby klucz byl taki sam jak wiadomosc
     while (key.size() < msg.size())
         key += tmp;
 
@@ -23,11 +23,9 @@ std::string decrypt(std::string msg, std::string key)
 int main()
 {
 
-
-
         srand( time( NULL ) );
         //char litera[ 5 ];
-        char key[5];
+        char key[6];
        /* for( int i = 0; i < 5; i++ )
         {
             switch(( rand() % 2 ) + 1 ) {
@@ -37,12 +35,12 @@ int main()
             }
         }*/
 
-        for( int i = 0; i < 5; i++ )
+        for( int i = 0; i < 1; i++ )
         {
            // std::cout << litera[ i ];
             //litera[i]=key[i];
-            std::string message = encrypt("aaaaa1", key);
-            std::cout << "Encrypted: " << message;
+            std::string message = encrypt("wiadomosc", key);
+            std::cout << "\nEncrypted: " << message;
             std::cout << "\nDecrypted: " << decrypt(message, key);
         }
         return 0;
